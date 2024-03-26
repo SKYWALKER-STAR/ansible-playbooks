@@ -1,0 +1,9 @@
+---  
+- hosts: remoteHosts
+  become: yes
+  become_user: root
+  tasks: 
+    - name: Collect file from remote hosts
+      fetch: 
+        src: /path/to/remote/files
+        dest: /path/to/local/files-"{{ inventory_hostname }}"
