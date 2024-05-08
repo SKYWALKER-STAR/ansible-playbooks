@@ -1,0 +1,9 @@
+---
+es_address_ipv4: "{{ ansible_eth0['ipv4']['address'] }}"
+es_node_name: "{{ inventory_hostname }}"
+
+es_user_name: ealsticsearch
+
+es_home_path: /data/software/elasticsearch
+es_data_path: /data/software/elasticsearch/data
+es_log_path: /data/software/elasticsearch/logs

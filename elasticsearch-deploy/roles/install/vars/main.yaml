@@ -1,0 +1,4 @@
+---
+es_src_url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.13.3-linux-x86_64.tar.gz
+
+es_pkg_name: elasticsearch-8.13.3-linux-x86_64.tar.gz

@@ -1,0 +1,33 @@
+---
+- name: Download elasticsearch
+  get_url:
+          url: "{{ es_src_url }}"
+          dest:  "/tmp/{{ es_pkg_name }}"
+
+- name: Create Home dir
+  file:
+          path: "{{ es_home_path }}"
+          state: directory
+          owner: "{{ es_user_name }}"
+          group: "{{ es_user_name }}"
+          mode: 0755
+
+- name: Create Data path
+  file:
+          path: "{{ es_data_path }}"
+          state: directory
+          owner: "{{ es_user_name }}"
+          group: "{{ es_user_name }}"
+          mode: 0755
+
+- name: Create Log path
+  file:
+          path: "{{ es_log_path }}"
+          state: directory
+          owner: "{{ es_user_name }}"
+          group: "{{ es_user_name }}"
+          mode: 0755
+
+- name: unarchive elasticsearch package
+  command:
+          tar -xvf /tmp/{{ es_pkg_name }} -C /data/software/elasticsearch --strip-components=1

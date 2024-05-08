@@ -1,0 +1,12 @@
+---
+#This play book runs all the common plays in the deployment
+
+- name: Create The Elasticsearch User
+  user: name={{ es_user_name  }} comment="Elasticsearch"
+
+
+- name: Create Configuration file 
+  template: src=elasticsearch.j2 dest={{ es_home_path }}/config/elasticsearch.yml
+
+- name: Start Elasticsearch
+  command: nohup {{ es_home_path }}/bin/elasticsearch > nohup.out&

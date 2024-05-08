@@ -1,0 +1,14 @@
+---
+- name: File descriptor adjust
+  blockinfile:
+          path: /etc/security/limits.conf
+          backup: yes
+          block:
+                  "appops soft memlock unlimited\nappops hard memlock unlimited\nappops soft nofile 65536\nappops hard nofile 65536\nappops soft nproc 65536\nappops hard nproc 65536\n"
+
+- name: Kernel params adjust
+  blockinfile:
+          path: /etc/sysctl.conf
+          backup: yes
+          block:
+                  "vm.swappiness=1\nvm.max_map_count=655360\nnet.core.somaxconn=65536\nfs.file-max=655360"

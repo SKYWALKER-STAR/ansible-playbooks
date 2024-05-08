@@ -1,0 +1,7 @@
+---
+
+- hosts: aliyun
+  roles:
+  - role: options
+    #- role: install
+    #- role: configure

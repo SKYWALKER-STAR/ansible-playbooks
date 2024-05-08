@@ -1,0 +1,17 @@
+cluster.name: elasticsearch-cluster
+node.name: elasticsearch-{{ ansible_hostname }}
+node.master: true
+node.data: true
+network.host: 0.0.0.0
+http.port: 9200
+discovery.zen.ping.unicast.hosts: [{{ es_address_ipv4}}]
+discovery.zen.minimum_master_nodes: {{ es_address_ipv4 }}
+path.data: {{ es_data_path }}
+path.logs: {{ es_log_path }}
+cluster.initial_master_nodes: [{{ es_node_name }}]
+transport.tcp.compress: true
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
